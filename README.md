@@ -98,6 +98,18 @@ Para validar sua atividade, siga estes passos:
 4.  **Resposta Teórica:** No final deste README (ou em um arquivo separado), responda à seguinte questão:
 
 > **Pergunta:** Sendo este um sistema distribuído, quais seriam os riscos de manter o saldo em memória (InMemory) caso tivéssemos múltiplas instâncias desta API rodando simultaneamente?
+Em um sistema distribuído com múltiplas instâncias da API, utilizar armazenamento em memória (InMemory) apresenta riscos significativos.
+
+Cada instância da aplicação mantém seu próprio estado isolado, o que pode causar inconsistência de dados, já que uma instância não tem conhecimento das operações realizadas pelas outras.
+
+Isso pode resultar em problemas como vendas duplicadas, estoque incorreto e divergência de informações entre usuários.
+
+Além disso, os dados armazenados em memória são voláteis e são perdidos sempre que a aplicação é reiniciada.
+
+Outro risco importante é a ausência de controle de concorrência entre instâncias, o que pode permitir que múltiplas requisições processem simultaneamente operações críticas, como a venda do último item disponível.
+
+Para mitigar esses problemas, é recomendado o uso de um banco de dados centralizado, aliado a mecanismos de controle de concorrência e, se necessário, cache distribuído.
+
 
 ---
 
